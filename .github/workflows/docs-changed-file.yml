@@ -1,5 +1,5 @@
 # https://github.com/marketplace/actions/changed-files
-name: print changed files
+name: print docs changed files
 
 on:
   push:
