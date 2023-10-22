@@ -1,9 +1,10 @@
-name: CI
+name: print changed files
 
 on:
   pull_request:
     branches:
       - main
+      - dev
 
 jobs:
   # -------------------------------------------------------------
