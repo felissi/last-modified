@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+    paths: 
+      - stories/docs/**/*.mdx
 
 # -------------------------------
 #  Optionally run on other events
