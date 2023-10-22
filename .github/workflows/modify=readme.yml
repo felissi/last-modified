@@ -1,4 +1,4 @@
-name: print docs changed files
+name: modify README
 
 on:
   push:
@@ -17,4 +17,4 @@ jobs:
         uses: jaywcjlove/github-action-modify-file-content@main
         with:
           path: README.md
-          body: "{{date:yyyy-MM-dd'T'HH:mm:ss'Z'}}"
+          body: "{{date:YYYY-MM-DD HH:mm:ss}}"
