@@ -67,8 +67,11 @@ jobs:
         # run: |
         #   echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | tr ' ' '\n' | sed "s/'//g"
         run: |
-          echo "array=\["stories/docs/doc6.mdx"\,"stories/docs/doc8.mdx"\]" >> $GITHUB_OUTPUT
-          
+          echo "array=[\"stories/docs/doc6.mdx\",\"stories/docs/doc8.mdx\"]" >> $GITHUB_OUTPUT
+      
+      - name: Show me the array
+        run: |
+          echo ${{ steps.return-array.outputs.array }}
       # - name: Modify the files with date time now
       # #   if: steps.changed-files-specific.outputs.any_changed == 'true'
 
