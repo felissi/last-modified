@@ -65,8 +65,8 @@ jobs:
         id: return-array
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-          array=($(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | tr ' ' '\n' | sed "s/'//g"))
-          echo array
+          echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | tr ' ' '\n' | sed "s/'//g"
+          
       # - name: Modify the files with date time now
       # #   if: steps.changed-files-specific.outputs.any_changed == 'true'
 
