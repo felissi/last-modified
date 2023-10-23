@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest # windows-latest || macos-latest
     name: Test changed-files
     outputs:
-      files: ${{ steps.changed-files-specific.outputs.all_changed_files }}
+      files: ${{ steps.return-array.outputs }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -61,6 +61,12 @@ jobs:
           for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
+      - name: Turn into array
+        id: return-array
+        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        run: |
+          array=($(echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | tr ' ' '\n' | sed "s/'//g"))
+          echo array
       # - name: Modify the files with date time now
       # #   if: steps.changed-files-specific.outputs.any_changed == 'true'
 
