@@ -1,0 +1,19 @@
+name: Set Variable Based on Branch
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - feature/*
+
+jobs:
+  set_variable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Variable
+        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+
+      - name: Use Variable
+        run: |
+          echo "Branch Name: ${{ env.BRANCH_NAME }}"

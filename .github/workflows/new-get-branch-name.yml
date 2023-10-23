@@ -1,0 +1,21 @@
+name: get the Branch
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - feature/*
+
+
+jobs:
+  set_variable:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Pushed Branch
+        id: get_branch
+        uses: ./.github/actions/get-branch-name.yml
+
+      - name: Use Branch Name
+        run: |
+          echo "Branch Name: ${{ steps.get_branch.outputs.branch }}"

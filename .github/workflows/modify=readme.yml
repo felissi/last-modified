@@ -1,0 +1,20 @@
+name: modify README
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+    # paths:
+    #   - stories/docs/**/*.mdx
+
+jobs:
+  modify:
+    runs-on: ubuntu-latest
+    name: task-1
+    steps:
+      - name: Modify README.md
+        uses: jaywcjlove/github-action-modify-file-content@main
+        with:
+          path: README.md
+          body: "{{date:YYYY-MM-DD HH:mm:ss}}"

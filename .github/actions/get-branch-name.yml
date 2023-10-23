@@ -1,0 +1,24 @@
+name: Get Pushed Branch
+
+description: Retrieves the branch name from the push event.
+
+inputs:
+  token:
+    description: 'GitHub token for authentication.'
+    required: false
+    default: ${{ github.GITHUB_TOKEN }}
+
+outputs:
+  branch:
+    description: 'The name of the pushed branch.'
+
+runs:
+  using: 'composite'
+
+  steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Get Branch Name
+      id: branch_name
+      run: echo "::set-output name=branch::${GITHUB_REF#refs/heads/}"
