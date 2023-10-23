@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest # windows-latest || macos-latest
     name: Test changed-files
     outputs:
-      files: ${{ steps.changed-files-specific.outputs.any_changed }}
+      files: ${{ steps.changed-files-specific.outputs.all_changed_files }}
     steps:
       - uses: actions/checkout@v4
         with:
