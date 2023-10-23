@@ -11,6 +11,9 @@ jobs:
   set_variable:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        
       - name: Set Variable
         run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
 

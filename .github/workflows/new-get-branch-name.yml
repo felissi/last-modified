@@ -12,9 +12,12 @@ jobs:
   set_variable:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
       - name: Get Pushed Branch
         id: get_branch
-        uses: ./.github/actions/get-branch-name.yml
+        uses: .github/actions/get-branch-name.yml
 
       - name: Use Branch Name
         run: |

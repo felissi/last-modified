@@ -71,7 +71,7 @@ jobs:
         # run: |
         #   echo "array=[\"stories/docs/doc6.mdx\",\"stories/docs/doc8.mdx\"]" >> $GITHUB_OUTPUT
       
-      - name: Show me the array
+      - name: Show me the changed files
         run: |
           echo ${{ steps.return-array.outputs.array }}
       # - name: Modify the files with date time now
@@ -100,6 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: changed_files
     strategy:
+      fail-fast: false
       matrix:
         files: ${{ fromJSON(needs.changed_files.outputs.files) }}
     steps:

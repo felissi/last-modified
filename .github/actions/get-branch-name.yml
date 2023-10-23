@@ -16,8 +16,8 @@ runs:
   using: 'composite'
 
   steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+    # - name: Checkout Repository
+    #   uses: actions/checkout@v4
 
     - name: Get Branch Name
       id: branch_name
