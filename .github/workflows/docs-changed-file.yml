@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest # windows-latest || macos-latest
     name: Test changed-files
     outputs:
-      files: ${{ steps.return-array.outputs }}
+      files: ${{ steps.return-array.outputs.array }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -64,8 +64,10 @@ jobs:
       - name: Turn into array
         id: return-array
         if: steps.changed-files-specific.outputs.any_changed == 'true'
+        # run: |
+        #   echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | tr ' ' '\n' | sed "s/'//g"
         run: |
-          echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | tr ' ' '\n' | sed "s/'//g"
+          echo "array=[doc1.mdx, doc2.mdx]" >> $GITHUB_OUTPUT
           
       # - name: Modify the files with date time now
       # #   if: steps.changed-files-specific.outputs.any_changed == 'true'
