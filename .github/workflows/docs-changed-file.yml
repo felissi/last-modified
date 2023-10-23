@@ -67,7 +67,7 @@ jobs:
         # run: |
         #   echo ${{ steps.changed-files-specific.outputs.all_changed_files }} | tr ' ' '\n' | sed "s/'//g"
         run: |
-          echo "array=[doc1.mdx, doc2.mdx]" >> $GITHUB_OUTPUT
+          echo "array=["stories/doc6.mdx", "stories/doc8.mdx"]" >> $GITHUB_OUTPUT
           
       # - name: Modify the files with date time now
       # #   if: steps.changed-files-specific.outputs.any_changed == 'true'
@@ -96,7 +96,7 @@ jobs:
     needs: changed_files
     strategy:
       matrix:
-        files: ${{ needs.changed_files.outputs.files }}
+        files: ${{ fromJson(needs.changed_files.outputs.files) }}
     steps:
       - name: Add modify time
         uses: jaywcjlove/github-action-modify-file-content@main
