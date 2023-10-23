@@ -65,9 +65,9 @@ jobs:
         id: return-array
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-          str = ${{steps.changed-files-specific.outputs.all_changed_files}}
-          array=[$(echo "$str" | tr ' ' '\n' | sed 's_.*_"&"_')]
-          echo "array=$array]" >> $GITHUB_OUTPUT
+          str="${{steps.changed-files-specific.outputs.all_changed_files}}"
+          array=[$(echo "$str" | tr ' ' '\n' | sed 's_.*_"&"_' | paste -sd ',')]
+          echo "array=$array" >> $GITHUB_OUTPUT
         # run: |
         #   echo "array=[\"stories/docs/doc6.mdx\",\"stories/docs/doc8.mdx\"]" >> $GITHUB_OUTPUT
       
