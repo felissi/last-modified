@@ -96,7 +96,7 @@ jobs:
     needs: changed_files
     strategy:
       matrix:
-        files: ${{ fromJson(needs.changed_files.outputs.files) }}
+        files: ${{ fromJSON(needs.changed_files.outputs.files) }}
     steps:
       - name: Add modify time
         uses: jaywcjlove/github-action-modify-file-content@main
