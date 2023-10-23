@@ -17,7 +17,7 @@ jobs:
 
       - name: Get Pushed Branch
         id: get_branch
-        uses: ./.github/actions/get-branch-name.yml
+        uses: .github/actions/get-branch-name.yml
 
       - name: Use Branch Name
         run: |
