@@ -19,9 +19,9 @@ body:
     validations:
       required: false
   - type: textarea
-    id: what-do-you-want
+    id: what-happened
     attributes:
-      label: What do you want? 🤔
+      label: What happened? 🤔
       description: Also tell us, what did you expect to happen?
       placeholder: A bug happened!
       # value: "A bug happened!"
@@ -36,7 +36,12 @@ body:
       # value: "Hummm, it should be ..."
     validations:
       required: false
-      
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output 📃
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: js
   - type: textarea
     id: how-to-test-reproduce
     attributes:
@@ -55,31 +60,38 @@ body:
       # value: "Hummm, it should be ..."
     validations:
       required: false
-  # - type: dropdown
-  #   id: version
-  #   attributes:
-  #     label: Version
-  #     description: What version of our software are you running?
-  #     options:
-  #       - 1.0.2 (Default)
-  #       - 1.0.3 (Edge)
-  #     default: 0
-  #   validations:
-  #     required: true
-
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+      default: 0
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      description: What Environment are you on?
+      options:
+        - Production (Default)
+        - Staging
+        - UAT
+        - Development
+      default: 0
+    validations:
+      required: true
   - type: dropdown
     id: browsers
     attributes:
-      label: What browsers you using the most?
+      label: What browsers are you seeing the problem on?
       multiple: true
       options:
         - Firefox
         - Chrome
         - Safari
         - Microsoft Edge
-        - IE
-  - type: checkbox
-    id: contribute
-    attributes:
-      label: Would you like to help ous implementing this feature?
 
