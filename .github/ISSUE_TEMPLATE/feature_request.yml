@@ -80,5 +80,4 @@ body:
   - type: checkboxes
     id: contribute
     attributes:
-      options:
-      - label: Would you like to help ous implementing this feature?
+      label: Would you like to help ous implementing this feature?
