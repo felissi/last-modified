@@ -33,7 +33,7 @@ body:
     id: what-do-you-want
     attributes:
       label: What do you want? 🤔
-      description: Also tell us, what did you expect to happen?
+      description: Also tell us, how is that beneficial to you?
       placeholder: I just want to be happy.
       # value: "A bug happened!"
     validations:
@@ -48,14 +48,14 @@ body:
     validations:
       required: false
       
-  - type: textarea
-    id: how-to-test-reproduce
-    attributes:
-      label: How to test it? 🧪
-      # description: Also tell us, what did you expect to happen?
-      placeholder: Open the refrigerator, take out the giraffe, put in the elephant and close the door.
-    validations:
-      required: false
+  # - type: textarea
+  #   id: how-to-test-reproduce
+  #   attributes:
+  #     label: How to test it? 🧪
+  #     # description: Also tell us, what did you expect to happen?
+  #     placeholder: Open the refrigerator, take out the giraffe, put in the elephant and close the door.
+  #   validations:
+  #     required: false
   - type: textarea
     id: any-suggestions-that-may-help
     attributes:
